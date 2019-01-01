@@ -85,4 +85,4 @@ with open('kittylist.csv', file_flag) as outcsv:
 
 elapsed_time = time.time() - start_time
 
-print(f"Got {_supply + 1} kitties in {elapsed_time} seconds")
+print(f"Got {_supply} kitties in {elapsed_time} seconds")

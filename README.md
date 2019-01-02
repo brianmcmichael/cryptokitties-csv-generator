@@ -13,4 +13,4 @@ Get the .csv (~170mb) and .zip (~70mb) in [Releases](https://github.com/brianmcm
 ## Output
 
 * Filename: `kittylist.csv`
-* CSV Format: `"id", "isGestating", "isReady", "cooldownIndex", "nextActionAt", "siringWithId", "birthTime", "matronId", "sireId", "generation", "genes"`
+* CSV Format: `"id", "isGestating", "isReady", "cooldownIndex", "nextActionAt", "siringWithId", "birthTime", "matronId", "sireId", "generation", "genes", "kai_genes"`

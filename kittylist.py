@@ -6,7 +6,17 @@ from web3.auto import w3
 
 start_time = time.time()
 
-#print(w3.eth.getBlock('latest'))
+# Kai Encoding
+ALPHABET = '123456789abcdefghijkmnopqrstuvwx'
+BASE = len(ALPHABET)
+
+def kai_encode( num ):
+    buf = ""
+    while num >= BASE:      
+        mod = num % BASE
+        buf = ALPHABET[mod] + buf
+        num = (num - mod)//BASE
+    return ALPHABET[num] + buf
 
 CONTRACT_ABI = ""
 with open(os.path.join(os.path.dirname(__file__), "cryptokitties.json")) as json_data:
@@ -59,7 +69,7 @@ print(f"Starting with {start_id}")
 with open('kittylist.csv', file_flag) as outcsv:
     _headers = [ "id", "isGestating", "isReady", "cooldownIndex", "nextActionAt",
                  "siringWithId", "birthTime", "matronId", "sireId",
-                 "generation", "genes" ]
+                 "generation", "genes", "kai_genes" ]
     writer = csv.DictWriter(outcsv, fieldnames = _headers)
     if not read_file:
         writer.writeheader()
@@ -79,7 +89,8 @@ with open('kittylist.csv', file_flag) as outcsv:
             "matronId": _k[6],
             "sireId": _k[7],
             "generation": _k[8],
-            "genes": _k[9]
+            "genes": _k[9],
+            "kai_genes": kai_encode(_k[9])
         })
 
 

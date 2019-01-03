@@ -8,7 +8,7 @@ start_time = time.time()
 
 # Kai Encoding
 ALPHABET = '123456789abcdefghijkmnopqrstuvwx'
-BASE = len(ALPHABET)
+BASE = 32
 
 def kai_encode( num ):
     buf = ""
